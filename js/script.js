@@ -164,12 +164,14 @@ const exercicio8 = () => {
 
 const exercicio9 = () => {
   let resposta = document.getElementById("resposta");
+  let soma = 0;
+  resposta.innerHTML = "";
 
-  let resultado = "";
-  for (let i = 0; i <= 100; i++) {
-    resultado += i + " # ";
+  for (let i = 1; i <= 100; i++) {
+    soma += i;
   }
-  resposta.innerHTML = resultado;
+  resposta.innerHTML = `<h2>Resposta da Atividade</h2> 
+                        <p>A soma dos números de 1 a 100 é: ${soma}</p>`;
 };
 
 let soma = 0;
@@ -312,7 +314,18 @@ const exercicio15 = () => {
 
   for (let i = 0; i < palavra.length; i++) {
     let letra = palavra[i];
-    if (letra == "a" ||letra == "A" ||letra == "e" ||letra == "E" ||letra == "i" ||letra == "I" ||letra == "o" ||letra == "O" ||letra == "u" ||letra == "U") {
+    if (
+      letra == "a" ||
+      letra == "A" ||
+      letra == "e" ||
+      letra == "E" ||
+      letra == "i" ||
+      letra == "I" ||
+      letra == "o" ||
+      letra == "O" ||
+      letra == "u" ||
+      letra == "U"
+    ) {
       resultado.innerHTML += "A letra " + letra + " é uma: VOGAL!<br>";
     } else if (letra === " ") {
       resultado.innerHTML += "<br>";
@@ -411,7 +424,28 @@ const exercicio20 = (/*DUVIDA*/) => {};
 
 const exercicio21 = (/*DUVIDA*/) => {};
 
-const exercicio22 = (/*------*/) => {};
+const exercicio22 = (/*------*/) => {
+  let resultado = document.getElementById("resultado");
+  let erro = document.getElementById("erro");
+  let numero = document.getElementById("num").value;
+  let cem = "";
+
+  while (numero != "0") {
+    soma += parseFloat(numero);
+    contador++;
+    numero = prompt("Digite um número: ");
+    resultado.innerHTML = numero;
+    cem = soma
+  }
+
+  if (soma <= 100) {
+    resultado.innerHTML = `A soma de Todos o número é igual á: ${cem}`;
+    erro.innerHTML = "";
+  }
+
+  soma = 0;
+  contador = 0;
+};
 
 const exercicio23 = (/*DUVIDA*/) => {};
 
