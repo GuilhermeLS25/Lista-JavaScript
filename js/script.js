@@ -138,11 +138,28 @@ const exercicio7 = () => {
   resposta.innerHTML = resultado;
 };
 
-const exercicio8 = (/*DUVIDA*/) => {
+const exercicio8 = () => {
   let erro = document.getElementById("erro");
   let resultado = document.getElementById("resultado");
-  let palavra = document.getElementById("palavra");
+  let palavra = document.getElementById("palavra").value;
+
   resultado.innerHTML = "";
+  erro.innerHTML = "";
+
+  let palavrainvertida = "";
+
+  for (let i = palavra.length - 1; i >= 0; i--) {
+    palavrainvertida += palavra[i];
+  }
+
+  resultado.innerHTML = `A palavra invertida fica assim: ${palavrainvertida}`;
+  erro.innerHTML = "";
+
+  if (palavra == palavrainvertida) {
+    resultado.innerHTML += "<br> A palavra é um palindromo";
+  } else {
+    resultado.innerHTML += "<br> A palavra não é um palindromo!";
+  }
 };
 
 const exercicio9 = () => {
@@ -155,11 +172,33 @@ const exercicio9 = () => {
   resposta.innerHTML = resultado;
 };
 
-const exercicio10 = (/*DUVIDA*/) => {
-  let erro = document.getElementById("erro");
+let soma = 0;
+let contador = 0;
+const exercicio10 = () => {
   let resultado = document.getElementById("resultado");
-  let num = parseInt(document.getElementById("num").value);
-  resultado.innerHTML = "";
+  let erro = document.getElementById("erro");
+  let numero = document.getElementById("num").value;
+
+  // if (numero != "0") {
+  //   soma += parseFloat(numero);
+  //   contador++;
+  // }
+  // resultado.innerHTML = `A média dos números digitados é: ${soma / contador}`;
+  // erro.innerHTML = "";
+
+  while (numero != "0") {
+    soma += parseFloat(numero);
+    contador++;
+    numero = prompt("Digite um número: ");
+  }
+
+  if (contador > 0) {
+    resultado.innerHTML = `Foram digitados ${contador} números. A média da soma dos números digitados é: ${soma / contador}`;
+    erro.innerHTML = "";
+  }
+
+  soma = 0;
+  contador = 0;
 };
 
 const exercicio11 = () => {
@@ -265,7 +304,7 @@ const exercicio14 = () => {
   resultado.innerHTML = "A area do triangulo é igual a " + area;
 };
 
-const execicio15 = () => {
+const exercicio15 = () => {
   let palavra = document.getElementById("palavra").value;
   let resultado = document.getElementById("resultado");
   let erro = document.getElementById("erro");
@@ -273,18 +312,7 @@ const execicio15 = () => {
 
   for (let i = 0; i < palavra.length; i++) {
     let letra = palavra[i];
-    if (
-      letra == "a" ||
-      letra == "A" ||
-      letra == "e" ||
-      letra == "E" ||
-      letra == "i" ||
-      letra == "I" ||
-      letra == "o" ||
-      letra == "O" ||
-      letra == "u" ||
-      letra == "U"
-    ) {
+    if (letra == "a" ||letra == "A" ||letra == "e" ||letra == "E" ||letra == "i" ||letra == "I" ||letra == "o" ||letra == "O" ||letra == "u" ||letra == "U") {
       resultado.innerHTML += "A letra " + letra + " é uma: VOGAL!<br>";
     } else if (letra === " ") {
       resultado.innerHTML += "<br>";
@@ -377,36 +405,16 @@ const exercicio18 = () => {
   resultado.innerHTML = "A área do trapezio é igual á: " + area.toFixed(2);
 };
 
-const exercicio19 = (/*DUVIDA*/) => {
-  let palavra = document.getElementById("palavra");
-  let letra = document.getElementById("letra");
-  let resultado = document.getElementById("resultado");
-  let erro = document.getElementById("erro");
-};
+const exercicio19 = (/*DUVIDA*/) => {};
 
-const exercicio20 = (/*DUVIDA*/) => {
-  let palavra = document.getElementById("palavra");
-  let letra = document.getElementById("letra");
-  let resultado = document.getElementById("resultado");
-  let erro = document.getElementById("erro");
-};
+const exercicio20 = (/*DUVIDA*/) => {};
 
-const exercicio21 = (/*DUVIDA*/) => {
-  let palavra = document.getElementById("palavra");
-  let letra = document.getElementById("letra");
-  let resultado = document.getElementById("resultado");
-  let erro = document.getElementById("erro");
-};
+const exercicio21 = (/*DUVIDA*/) => {};
 
-const exercicio22 = (/*DUVIDA*/) => {
-  let num;
-};
+const exercicio22 = (/*------*/) => {};
 
-const exercicio23 = (/*DUVIDA*/) => {
-};
+const exercicio23 = (/*DUVIDA*/) => {};
 
-const exercicio24 = (/*DUVIDA*/) => {
-};
+const exercicio24 = (/*DUVIDA*/) => {};
 
-const exercicio25 = (/*DUVIDA*/) => {
-};
+const exercicio25 = (/*------*/) => {};
