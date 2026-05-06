@@ -1,164 +1,155 @@
 const exercicio1 = () => {
+  // Capturar o elemento "Resposta"
   let resposta = document.getElementById("resposta");
-
+  // Variavel para armazenar o resultado do programa
   let resultado = " # ";
+  // Loop de 1 até 10 usando for
   for (let i = 1; i <= 10; i++) {
     resultado += i + " # ";
   }
+  // Exibir o resultadO
   resposta.innerHTML = resultado;
 };
 
 const exercicio2 = () => {
-  let num = parseInt(document.getElementById("num").value);
-  let erro = document.getElementById("erro");
   let resultado = document.getElementById("resultado");
-  let resposta = "";
-
-  if (num <= 0) {
-    erro.innerHTML = "Digite outro valor";
+  let erro = document.getElementById("erro");
+  let numero = document.getElementById("num").value;
+  // Limpar as variaveis
+  erro.innerHTML = "";
+  resultado.innerHTML = "";
+  if (numero <= 0) {
+    erro.innerHTML = "Digite um número maior que 0";
     resultado.innerHTML = "";
-    return;
   } else {
+    for (let i = 0; i <= numero; i += 2) {
+      resultado.innerHTML += i + " ";
+    }
     erro.innerHTML = "";
   }
-  for (let i = 0; i <= num; i += 2) {
-    resposta += i + " # ";
-  }
-  resultado.innerHTML = resposta;
 };
 
 const exercicio3 = () => {
   let resultado = document.getElementById("resultado");
   let erro = document.getElementById("erro");
-  let num = document.getElementById("num").value;
+  let numero = document.getElementById("num").value;
   let primo = true;
 
-  if (num <= 0) {
+  if (numero <= 0) {
     erro.innerHTML = "Digite um número maior que 0";
     resultado.innerHTML = "";
     return;
   } else {
-    for (let i = 2; i < num; i++) {
-      if (num % i == 0) {
+    for (let i = 2; i < numero; i++) {
+      if (numero % i == 0) {
         primo = false;
       }
     }
   }
-
   if (primo) {
-    resultado.innerHTML = `O número ${num} é primo`;
+    resultado.innerHTML = `O número ${numero} é primo`;
     erro.innerHTML = "";
   } else {
-    resultado.innerHTML = `O número ${num} não é primo`;
+    resultado.innerHTML = `O número ${numero} não é primo`;
     erro.innerHTML = "";
   }
 };
 
 const exercicio4 = () => {
-  let num = parseInt(document.getElementById("num").value);
-  let erro = document.getElementById("erro");
   let resultado = document.getElementById("resultado");
-
+  let erro = document.getElementById("erro");
+  let numero = document.getElementById("num").value;
+  // Limpar as variaveis
+  erro.innerHTML = "";
   resultado.innerHTML = "";
-
-  if (num < 0) {
-    erro.innerHTML = "Digite outro valor";
+  if (numero <= 0) {
+    erro.innerHTML = "Digite um número maior que 0";
     resultado.innerHTML = "";
     return;
   } else {
+    for (let i = 1; i <= 10; i++) {
+      resultado.innerHTML += `${numero} x ${i} = ${numero * i} <br>`;
+    }
     erro.innerHTML = "";
-  }
-
-  for (let i = 1; i <= 10; i++) {
-    let calculo = num * i;
-    resultado.innerHTML += num + " x " + i + " = " + calculo + "<br>";
   }
 };
 
 const exercicio5 = () => {
-  let num = parseInt(document.getElementById("num").value);
-  let erro = document.getElementById("erro");
   let resultado = document.getElementById("resultado");
-  let resposta = "";
-
-  if (num <= 0) {
-    erro.innerHTML = "Digite outro valor";
+  let erro = document.getElementById("erro");
+  let numero = document.getElementById("num").value;
+  let contador = 1;
+  // Limpar as variaveis
+  erro.innerHTML = "";
+  resultado.innerHTML = "";
+  if (numero <= 0) {
+    erro.innerHTML = "Digite um número maior que 0";
     resultado.innerHTML = "";
-    return;
   } else {
+    while (contador <= parseInt(numero)) {
+      resultado.innerHTML += `${contador} `;
+      contador += 2;
+    }
     erro.innerHTML = "";
   }
-
-  let i = 0;
-  while (i <= num) {
-    i += 3;
-    resposta += i + " # ";
-  }
-  resultado.innerHTML = resposta;
 };
 
 const exercicio6 = () => {
-  let num = parseInt(document.getElementById("num").value);
-  let erro = document.getElementById("erro");
   let resultado = document.getElementById("resultado");
-  let contador = 1;
-
+  let erro = document.getElementById("erro");
+  let numero = document.getElementById("num").value;
+  let contador = 0;
+  let soma = 0;
+  // Limpar as variaveis
+  erro.innerHTML = "";
   resultado.innerHTML = "";
-
-  if (num <= 0) {
-    erro.innerHTML = "Digite outro valor";
+  if (numero <= 0) {
+    erro.innerHTML = "Digite um número maior que 0";
     resultado.innerHTML = "";
-    return;
   } else {
+    while (contador <= parseInt(numero)) {
+      soma += contador;
+      contador += 2;
+    }
+    resultado.innerHTML = `A soma dos números pares de 0 até ${numero} é: ${soma}`;
     erro.innerHTML = "";
   }
-
-  let soma = 0;
-
-  while (contador <= num) {
-    if (contador % 2 == 0) {
-      soma += contador;
-    }
-    contador++;
-  }
-  resultado.innerHTML = "A soma do 0 até " + num + " é igual a: " + soma;
 };
 
 const exercicio7 = () => {
   let resposta = document.getElementById("resposta");
+  let retorno = "";
+  let contador = 10;
+  resposta.innerHTML = "";
 
-  let resultado = "";
-
-  let i = 10;
-  while (i >= 1) {
-    resultado += i + " # ";
-    i--;
+  while (contador >= 1) {
+    retorno += contador + " ";
+    contador--;
   }
-
-  resposta.innerHTML = resultado;
+  resposta.innerHTML = `<h2>Resposta da Atividade</h2> ${retorno}`;
 };
 
 const exercicio8 = () => {
-  let erro = document.getElementById("erro");
   let resultado = document.getElementById("resultado");
+  let erro = document.getElementById("erro");
   let palavra = document.getElementById("palavra").value;
 
+  // Limpar os campos da tela, caso tenha alguma coisa.
   resultado.innerHTML = "";
   erro.innerHTML = "";
-
-  let palavrainvertida = "";
-
+  // Variavel para armazenar a palavra invertida
+  let palavraInvertida = "";
+  //Loop de 1 até o "tamanho" da palavra
   for (let i = palavra.length - 1; i >= 0; i--) {
-    palavrainvertida += palavra[i];
+    palavraInvertida += palavra[i];
   }
-
-  resultado.innerHTML = `A palavra invertida fica assim: ${palavrainvertida}`;
+  // Exibir a palavra invertida no resultado
+  resultado.innerHTML = `A palavra invertida é: ${palavraInvertida}`;
   erro.innerHTML = "";
-
-  if (palavra == palavrainvertida) {
-    resultado.innerHTML += "<br> A palavra é um palindromo";
+  if (palavra == palavraInvertida) {
+    resultado.innerHTML += "<br/> A palavra é um palíndromo";
   } else {
-    resultado.innerHTML += "<br> A palavra não é um palindromo!";
+    resultado.innerHTML += "<br/> A palavra não é um palíndromo";
   }
 };
 
@@ -180,275 +171,348 @@ const exercicio10 = () => {
   let resultado = document.getElementById("resultado");
   let erro = document.getElementById("erro");
   let numero = document.getElementById("num").value;
-
   // if (numero != "0") {
   //   soma += parseFloat(numero);
   //   contador++;
   // }
   // resultado.innerHTML = `A média dos números digitados é: ${soma / contador}`;
   // erro.innerHTML = "";
-
   while (numero != "0") {
     soma += parseFloat(numero);
     contador++;
     numero = prompt("Digite um número: ");
   }
-
   if (contador > 0) {
     resultado.innerHTML = `Foram digitados ${contador} números. A média da soma dos números digitados é: ${soma / contador}`;
     erro.innerHTML = "";
   }
-
   soma = 0;
   contador = 0;
 };
 
 const exercicio11 = () => {
   let resposta = document.getElementById("resposta");
-  let resultado = "";
+  let retorno = "";
+  let retorno2 = "";
+  resposta.innerHTML = "";
+
+  for (let i = 0; i <= 100; i += 3) {
+    retorno += i + " ";
+  }
+  resposta.innerHTML = `<h2>Resposta da Atividade</h2> 
+                        <p>Multiplos de 3 de 0 a 100</p>${retorno}`;
 
   for (let i = 1; i <= 100; i++) {
     if (i % 3 == 0) {
-      resultado += i + " # ";
+      retorno2 += i + " ";
     }
   }
-  resposta.innerHTML = resultado;
+  resposta.innerHTML += `<br/><p>Multiplos de 3 de 1 a 100</p>${retorno2}`;
 };
 
 const exercicio12 = () => {
-  let num = parseInt(document.getElementById("num").value);
-  let erro = document.getElementById("erro");
   let resultado = document.getElementById("resultado");
+  let erro = document.getElementById("erro");
+  let numero = document.getElementById("num").value;
 
-  if (num <= 0) {
-    erro.innerHTML = "Digite outro valor";
+  let soma = 0;
+  // Limpar as variaveis
+  erro.innerHTML = "";
+  resultado.innerHTML = "";
+
+  if (numero <= 0) {
+    erro.innerHTML = "Digite um número maior que 0";
     resultado.innerHTML = "";
-    return;
   } else {
+    for (let i = 0; i <= numero.length - 1; i++) {
+      soma += parseInt(numero[i]);
+    }
+    resultado.innerHTML = `A soma dos dígitos do número ${numero} é: ${soma}`;
     erro.innerHTML = "";
   }
-
-  let r = 0;
-
-  for (let i = num; i > 0; i--) {
-    r += i;
-  }
-  resultado.innerHTML = "A soma do 0 até " + num + " é igual á: " + r;
 };
 
 const exercicio13 = () => {
-  let num1 = parseInt(document.getElementById("num1").value);
-  let num2 = parseInt(document.getElementById("num2").value);
   let resultado = document.getElementById("resultado");
-  let resposta = "";
+  let erro = document.getElementById("erro");
+  let numero1 = Number(document.getElementById("num1").value);
+  let numero2 = Number(document.getElementById("num2").value);
 
-  if (num1 < 0) {
-    erro.innerHTML = "Digite outros valores";
-    resultado.innerHTML = "";
-    return;
-  } else {
-    erro.innerHTML = "";
-  }
+  // Limpar as variaveis
+  erro.innerHTML = "";
+  resultado.innerHTML = "";
 
-  if (num2 < 0) {
-    erro.innerHTML = "Digite outros valores";
-    resultado.innerHTML = "";
-    return;
-  } else {
-    erro.innerHTML = "";
-  }
-
-  for (let i = num1; i <= num2; i++) {
-    if (i < 2) {
-      continue;
-    }
-
+  const ePrimo = (numero) => {
     let primo = true;
-
-    for (let j = 2; j < i; j++) {
-      if (i % j === 0) {
+    for (let i = 2; i < numero; i++) {
+      if (numero % i == 0) {
         primo = false;
-        break;
       }
     }
+    return primo;
+  };
 
-    if (primo === true) {
-      resposta += i + " # ";
+  if (numero1 <= 0 || numero2 <= 0 || numero1 >= numero2) {
+    erro.innerHTML =
+      "Digite um número maior que 0 e o segundo número maior que o primeiro";
+    resultado.innerHTML = "";
+  } else {
+    resultado.innerHTML = `Os números primos entre ${numero1} e ${numero2} são: `;
+    for (let i = numero1; i <= numero2; i++) {
+      if (ePrimo(i)) {
+        resultado.innerHTML += i + " ";
+      }
     }
+    erro.innerHTML = "";
   }
-
-  resultado.innerHTML = resposta;
 };
 
 const exercicio14 = () => {
-  let lado1 = parseFloat(document.getElementById("num1").value);
-  let lado2 = parseFloat(document.getElementById("num2").value);
   let resultado = document.getElementById("resultado");
-  let area = 0;
-
-  if (lado1 <= 0) {
-    erro.innerHTML = "Digite outros valores";
+  let erro = document.getElementById("erro");
+  let numero1 = Number(document.getElementById("num1").value);
+  let numero2 = Number(document.getElementById("num2").value);
+  // Limpar as variaveis
+  erro.innerHTML = "";
+  resultado.innerHTML = "";
+  if (numero1 <= 0 || numero2 <= 0) {
+    erro.innerHTML = "Digite um número maior que 0";
     resultado.innerHTML = "";
-    return;
   } else {
+    let calculo = numero1 * numero2;
+    resultado.innerHTML = `A área do retângulo é de: ${calculo} un²`;
     erro.innerHTML = "";
   }
-
-  if (lado2 <= 0) {
-    erro.innerHTML = "Digite outros valores";
-    resultado.innerHTML = "";
-    return;
-  } else {
-    erro.innerHTML = "";
-  }
-
-  area = (lado1 * lado2) / 2;
-  resultado.innerHTML = "A area do triangulo é igual a " + area;
 };
 
 const exercicio15 = () => {
-  let palavra = document.getElementById("palavra").value;
   let resultado = document.getElementById("resultado");
   let erro = document.getElementById("erro");
-  resultado.innerHTML = "";
+  let palavra = document.getElementById("palavra").value;
+  let vogais = ["a", "e", "i", "o", "u"];
 
-  for (let i = 0; i < palavra.length; i++) {
-    let letra = palavra[i];
-    if (
-      letra == "a" ||
-      letra == "A" ||
-      letra == "e" ||
-      letra == "E" ||
-      letra == "i" ||
-      letra == "I" ||
-      letra == "o" ||
-      letra == "O" ||
-      letra == "u" ||
-      letra == "U"
-    ) {
-      resultado.innerHTML += "A letra " + letra + " é uma: VOGAL!<br>";
-    } else if (letra === " ") {
-      resultado.innerHTML += "<br>";
-    } else {
-      resultado.innerHTML += "A letra " + letra + " é uma: CONSOANTE!<br>";
+  // Limpar as variaveis
+  erro.innerHTML = "";
+  resultado.innerHTML = "";
+  if (palavra.length < 1) {
+    erro.innerHTML = "Digite no mínimo uma letra";
+    resultado.innerHTML = "";
+  } else {
+    palavra = palavra.toLowerCase(); // Transforma o texto em letras minusculas
+    for (let i = 0; i < palavra.length; i++) {
+      if (vogais.includes(palavra[i])) {
+        resultado.innerHTML += `A letra <b>${palavra[i]}</b> é uma vogal<br>`;
+      } else {
+        resultado.innerHTML += `A letra <b>${palavra[i]}</b> não é uma vogal<br>`;
+      }
     }
+    erro.innerHTML = "";
   }
 };
 
 const exercicio16 = () => {
-  let raio = parseFloat(document.getElementById("num1").value);
   let resultado = document.getElementById("resultado");
   let erro = document.getElementById("erro");
-  let area = 0;
+  let numero = document.getElementById("num1").value;
 
-  if (raio <= 0) {
-    erro.innerHTML = "Digite outros valores";
+  if (numero <= 0) {
     resultado.innerHTML = "";
-    return;
+    erro.innerHTML = "Digite um número maior que 0";
   } else {
     erro.innerHTML = "";
+    let calculo = 2 * parseFloat(numero) * Math.PI;
+    resultado.innerHTML = calculo;
   }
-
-  ((area = 3), 14 * raio ** 2);
-  resultado.innerHTML =
-    "A área da Circunferencia é igual á: " + area.toFixed(2);
 };
 
 const exercicio17 = () => {
-  let base = parseFloat(document.getElementById("num1").value);
-  let altura = parseFloat(document.getElementById("num2").value);
   let resultado = document.getElementById("resultado");
   let erro = document.getElementById("erro");
-  let area = 0;
-
-  if (base <= 0) {
-    erro.innerHTML = "Digite outros valores";
+  let numero1 = Number(document.getElementById("num1").value);
+  let numero2 = Number(document.getElementById("num2").value);
+  // Limpar as variaveis
+  erro.innerHTML = "";
+  resultado.innerHTML = "";
+  if (numero1 <= 0 || numero2 <= 0) {
+    erro.innerHTML = "Digite um número maior que 0";
     resultado.innerHTML = "";
-    return;
   } else {
+    let calculo = (numero1 * numero2) / 2;
+    resultado.innerHTML = `A área do triangulo é de: ${calculo} un²`;
     erro.innerHTML = "";
   }
-
-  if (altura <= 0) {
-    erro.innerHTML = "Digite outros valores";
-    resultado.innerHTML = "";
-    return;
-  } else {
-    erro.innerHTML = "";
-  }
-
-  area = (base * altura) / 2;
-  resultado.innerHTML = "A área do triangulo é igual á: " + area.toFixed(2);
 };
 
 const exercicio18 = () => {
-  let baseMaior = parseFloat(document.getElementById("num1").value);
-  let baseMenor = parseFloat(document.getElementById("num2").value);
-  let altura = parseFloat(document.getElementById("num3").value);
-
   let resultado = document.getElementById("resultado");
   let erro = document.getElementById("erro");
-  let area = 0;
+  let numero1 = Number(document.getElementById("num1").value);
+  let numero2 = Number(document.getElementById("num2").value);
+  let numero3 = Number(document.getElementById("num3").value);
+  // Limpar as variaveis
+  erro.innerHTML = "";
+  resultado.innerHTML = "";
 
-  if (baseMaior <= 0) {
-    erro.innerHTML = "Digite outros valores";
+  if (numero1 <= 0 || numero2 <= 0 || numero3 <= 0) {
+    erro.innerHTML = "Digite um número maior que 0";
     resultado.innerHTML = "";
-    return;
   } else {
+    let calculo = ((numero1 + numero2) * numero3) / 2;
+    resultado.innerHTML = `A área do trapézio é de: ${calculo} un²`;
     erro.innerHTML = "";
   }
-
-  if (baseMenor <= 0) {
-    erro.innerHTML = "Digite outros valores";
-    resultado.innerHTML = "";
-    return;
-  } else {
-    erro.innerHTML = "";
-  }
-
-  if (altura <= 0) {
-    erro.innerHTML = "Digite outros valores";
-    resultado.innerHTML = "";
-    return;
-  } else {
-    erro.innerHTML = "";
-  }
-
-  area = ((baseMaior + baseMenor) * altura) / 2;
-  resultado.innerHTML = "A área do trapezio é igual á: " + area.toFixed(2);
 };
 
-const exercicio19 = (/*DUVIDA*/) => {};
+const exercicio19 = () => {
+  let resultado = document.getElementById("resultado");
+  let erro = document.getElementById("erro");
+  let palavra = document.getElementById("palavra").value;
+  let letra = document.getElementById("letra").value;
+  let vogais = ["a", "e", "i", "o", "u"];
+  // Limpar as variaveis
+  erro.innerHTML = "";
+  resultado.innerHTML = "";
 
-const exercicio20 = (/*DUVIDA*/) => {};
+  if (letra.length > 1) {
+    erro.innerHTML = "Digite apenas um caracter.";
+    resultado.innerHTML = "";
+  } else if (palavra.length < 1) {
+    erro.innerHTML = "Digite uma palavra.";
+    resultado.innerHTML = "";
+  } else {
+    let palavraVetor = palavra.split(""); // Quebra a frase em varias palavras
+    for (let i = 0; i < palavraVetor.length; i++) {
+      if (vogais.includes(palavraVetor[i])) {
+        palavraVetor[i] = letra;
+      }
+    }
+    palavra = palavraVetor.join(""); // Junta novamente as palavras
+    resultado.innerHTML = `A palavra resultante é: ${palavra}`;
+    erro.innerHTML = "";
+  }
+};
 
-const exercicio21 = (/*DUVIDA*/) => {};
+const exercicio20 = () => {
+  let resultado = document.getElementById("resultado");
+  let erro = document.getElementById("erro");
+  let frase = document.getElementById("frase").value;
+  // Limpar as variaveis
+  erro.innerHTML = "";
+  resultado.innerHTML = "";
 
-const exercicio22 = (/*------*/) => {
+  if (frase.length < 1) {
+    erro.innerHTML = "Digite uma palavra.";
+    resultado.innerHTML = "";
+  } else {
+    let fraseInvertida = frase.split(" ").reverse().join(" ");
+    resultado.innerHTML = `A frase resultante é: ${fraseInvertida}`;
+    erro.innerHTML = "";
+  }
+};
+
+const exercicio21 = () => {
+  let resultado = document.getElementById("resultado");
+  let erro = document.getElementById("erro");
+  let frase = document.getElementById("frase").value;
+  // Limpar as variaveis
+  erro.innerHTML = "";
+  resultado.innerHTML = "";
+
+  if (frase.length < 1) {
+    erro.innerHTML = "Digite uma palavra.";
+    resultado.innerHTML = "";
+  } else {
+    let fraseNova = frase.split(" ").join("");
+    resultado.innerHTML = `A frase resultante é: ${fraseNova}`;
+    erro.innerHTML = "";
+  }
+};
+
+soma = 0;
+contador = 0;
+const exercicio22 = () => {
   let resultado = document.getElementById("resultado");
   let erro = document.getElementById("erro");
   let numero = document.getElementById("num").value;
-  let cem = "";
-
-  while (numero != "0") {
+  // Limpar as variaveis
+  erro.innerHTML = "";
+  resultado.innerHTML = "";
+  if (soma < 100) {
     soma += parseFloat(numero);
-    contador++;
-    numero = prompt("Digite um número: ");
-    resultado.innerHTML = numero;
-    cem = soma
-  }
-
-  if (soma <= 100) {
-    resultado.innerHTML = `A soma de Todos o número é igual á: ${cem}`;
+    resultado.innerHTML = `A soma dos números digitados é: ${soma}`;
+    erro.innerHTML = "";
+  } else {
+    resultado.innerHTML = `A soma já atingiu o limite de 100, o total é: ${soma}`;
     erro.innerHTML = "";
   }
 
-  soma = 0;
-  contador = 0;
 };
 
-const exercicio23 = (/*DUVIDA*/) => {};
+const exercicio23 = () => {
+  let resultado = document.getElementById("resultado");
+  let erro = document.getElementById("erro");
+  let palavra = document.getElementById("palavra").value;
+  let frase = document.getElementById("frase").value;
 
-const exercicio24 = (/*DUVIDA*/) => {};
+  erro.innerHTML = "";
+  resultado.innerHTML = "";
 
-const exercicio25 = (/*------*/) => {};
+  if (frase.length < 1 || palavra.length < 1) {
+    erro.innerHTML = "Digite uma frase e uma palavra para realizar a contagem.";
+    resultado.innerHTML = "";
+  } else {
+    let palavrasNaFrase = frase.split(" ");
+    let contador = 0;
+    for (let i = 0; i < palavrasNaFrase.length; i++) {
+      if (palavrasNaFrase[i] == palavra) {
+        contador++;
+      }
+    }
+    resultado.innerHTML = `A palavra "${palavra}" aparece ${contador} vez(es) na frase.`;
+    erro.innerHTML = "";
+  }
+};
+
+const exercicio24 = () => {
+  let resultado = document.getElementById("resultado");
+  let erro = document.getElementById("erro");
+  let frase = document.getElementById("frase").value;
+
+  erro.innerHTML = "";
+  resultado.innerHTML = "";
+
+  if (frase.length < 1) {
+    erro.innerHTML = "Digite uma frase para converter.";
+    resultado.innerHTML = "";
+  } else {
+    let palavras = frase.split(" ");
+    let fraseNova = palavras
+      .map((palavra) => {
+        return palavra.charAt(0).toUpperCase() + palavra.slice(1).toLowerCase();
+      })
+      .join(" ");
+    resultado.innerHTML = `A frase resultante é: ${fraseNova}`;
+    erro.innerHTML = "";
+  }
+};
+
+const exercicio25 = () => {
+  let resultado = document.getElementById("resultado");
+  let erro = document.getElementById("erro");
+  let num1 = document.getElementById("num1").value;
+  let num2 = document.getElementById("num2").value;
+  let num3 = document.getElementById("num3").value;
+
+  erro.innerHTML = "";
+  resultado.innerHTML = "";
+
+  if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+    erro.innerHTML = "Digite três números válidos.";
+    resultado.innerHTML = "";
+  } else {
+    let numeros = [num1, num2, num3];
+    numeros.sort((a, b) => a - b);
+    resultado.innerHTML = `Os números em ordem crescente são: ${numeros.join(", ")}`;
+    erro.innerHTML = "";
+  }
+};
